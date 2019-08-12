@@ -39,10 +39,10 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     @FindBy(id = "select_value_label_48")
     private WebElement machineTypeField;
 
-    @FindBy(id = "select_value_label_334")
+    @FindBy(id = "select_value_label_339")
     private WebElement numberOfGPUsField;
 
-    @FindBy(id = "select_value_label_335")
+    @FindBy(id = "select_value_label_340")
     private WebElement GPuTypeField;
 
     @FindBy(id = "select_value_label_50")
