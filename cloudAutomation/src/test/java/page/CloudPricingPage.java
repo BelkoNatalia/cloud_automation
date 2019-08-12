@@ -20,7 +20,7 @@ public class CloudPricingPage  extends CloudAbstractPage {
     }
 
     public CloudFillingCalculationFormPage usePricingCalculator(){
-        WebElement calculatorsBtn = waitForElementLocatedBy(driver, By.xpath(XPATH_CALCULATORS_BTN));
+        WebElement calculatorsBtn = waitForElementLocatedBy(By.xpath(XPATH_CALCULATORS_BTN));
         calculatorsBtn.click();
         return new CloudFillingCalculationFormPage(driver);
     }

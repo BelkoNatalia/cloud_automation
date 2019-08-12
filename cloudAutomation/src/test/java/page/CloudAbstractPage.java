@@ -18,18 +18,17 @@ public abstract class CloudAbstractPage {
         this.driver = driver;
     }
 
-    protected WebElement waitForElementLocatedBy(WebDriver driver, By by) {
+    protected WebElement waitForElementLocatedBy(By by) {
         return new WebDriverWait(driver, TIME_WAIT)
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    protected WebElement waitForElementToBeClickableBy(WebDriver driver, By by) {
+    protected WebElement waitForElementToBeClickableBy(By by) {
         return new WebDriverWait(driver, TIME_WAIT)
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
 
-
-    protected void waitInvisibilityOfElementLocated(WebDriver driver, By by) {
+    protected void waitInvisibilityOfElementLocated(By by) {
         new WebDriverWait(driver,TIME_WAIT).until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 

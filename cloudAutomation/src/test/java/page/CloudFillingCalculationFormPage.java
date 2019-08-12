@@ -58,7 +58,7 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     }
 
     public CloudFillingCalculationFormPage activateComputeEngine() {
-        waitForElementLocatedBy(driver, By.id(ID_Iframe));
+        waitForElementLocatedBy(By.id(ID_Iframe));
         driver.switchTo().frame(iframe);
         computeEngineBtn.click();
         return this;
@@ -72,7 +72,7 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     public CloudFillingCalculationFormPage chooseOperatingSystem(ComputerEngine computerEngine) {
         String xpathOperatingSystem = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getOperatingSystem());
         operatingSystemSoftwareField.click();
-        WebElement operatingSystemOption = waitForElementLocatedBy(driver, By.xpath(xpathOperatingSystem));
+        WebElement operatingSystemOption = waitForElementLocatedBy(By.xpath(xpathOperatingSystem));
         operatingSystemOption.click();
         return this;
     }
@@ -80,19 +80,19 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     public CloudFillingCalculationFormPage chooseMachineClass(ComputerEngine computerEngine) {
         String xpathMachineClass = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getMachineClass());
         machineClassField.click();
-        waitForElementLocatedBy(driver, By.xpath(xpathMachineClass)).click();
+        waitForElementLocatedBy(By.xpath(xpathMachineClass)).click();
         return this;
     }
 
     public CloudFillingCalculationFormPage chooseMachineType(ComputerEngine computerEngine){
         String xpathMachineType = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getMachineType());
         machineTypeField.click();
-        waitForElementToBeClickableBy(driver, By.xpath(xpathMachineType)).click();
+        waitForElementToBeClickableBy(By.xpath(xpathMachineType)).click();
         return this;
     }
 
     public CloudFillingCalculationFormPage pickGPUs() {
-        WebElement gpusCheckBox = waitForElementToBeClickableBy(driver, By.xpath(XPATH_GPUS_CHECK_BOX));
+        WebElement gpusCheckBox = waitForElementToBeClickableBy(By.xpath(XPATH_GPUS_CHECK_BOX));
         if (!gpusCheckBox.isSelected()) {
             gpusCheckBox.click();
         }
@@ -102,7 +102,7 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     public CloudFillingCalculationFormPage chooseNumberOfGPUs(ComputerEngine computerEngine){
         String xpathNumberOfGPUs = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getNumberOfGpu());
         numberOfGPUsField.click();
-        WebElement element = waitForElementToBeClickableBy(driver, By.xpath(xpathNumberOfGPUs));
+        WebElement element = waitForElementToBeClickableBy(By.xpath(xpathNumberOfGPUs));
         element.click();
         return this;
     }
@@ -110,40 +110,39 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     public CloudFillingCalculationFormPage chooseGPuType(ComputerEngine computerEngine) {
         String xpathGPuTyp = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getGpuType());
         GPuTypeField.click();
-        waitForElementLocatedBy(driver, By.xpath(xpathGPuTyp)).click();
+        waitForElementLocatedBy(By.xpath(xpathGPuTyp)).click();
         return this;
     }
 
     public CloudFillingCalculationFormPage chooseLocalSsd(ComputerEngine computerEngine) {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath(XPATH_ESTIMATE_BTN)));
         String xpathLocalSsd = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getLocalSsd());
-        WebElement localSsdField = waitForElementToBeClickableBy(driver, By.id(ID_LOCAL_SSD_FIELD));
+        WebElement localSsdField = waitForElementToBeClickableBy(By.id(ID_LOCAL_SSD_FIELD));
 
-        waitInvisibilityOfElementLocated(driver, By.xpath(XPATH_WAIT_CLOSE_MENU));
+        waitInvisibilityOfElementLocated(By.xpath(XPATH_WAIT_CLOSE_MENU));
 
         localSsdField.click();
-        waitForElementToBeClickableBy(driver, By.xpath(xpathLocalSsd)).click();
+        waitForElementToBeClickableBy(By.xpath(xpathLocalSsd)).click();
         return this;
     }
 
     public CloudFillingCalculationFormPage chooseDatacenterLocation(ComputerEngine computerEngine) {
         String xpathDatacenterLocation = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getDatacenterLocation());
         datacenterLocationField.click();
-        waitForElementToBeClickableBy(driver, By.xpath(xpathDatacenterLocation)).click();
+        waitForElementToBeClickableBy(By.xpath(xpathDatacenterLocation)).click();
         return this;
     }
 
     public CloudFillingCalculationFormPage chooseCommittedUsage(ComputerEngine computerEngine) {
         String xpathCommittedUsage = String.format(TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU, computerEngine.getCommitedUsach());
         commitedUsageField.click();
-        waitForElementToBeClickableBy(driver, By.xpath(xpathCommittedUsage)).click();
+        waitForElementToBeClickableBy(By.xpath(xpathCommittedUsage)).click();
         return this;
     }
 
     public CloudCalkulationResultPage getEstimation() {
-        waitForElementLocatedBy(driver, By.xpath(XPATH_ESTIMATE_BTN)).click();
+        waitForElementLocatedBy(By.xpath(XPATH_ESTIMATE_BTN)).click();
         logger.info("Form is filled in and gone to calculate");
         return new CloudCalkulationResultPage(driver);
     }
-
 }

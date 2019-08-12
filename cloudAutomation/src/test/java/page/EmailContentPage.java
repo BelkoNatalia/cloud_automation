@@ -18,8 +18,8 @@ public class EmailContentPage extends CloudAbstractPage {
     }
 
     public String getTotalEstimateCost(){
-       WebElement iFrame = waitForElementLocatedBy(driver, By.id(ID_Iframe));
+       WebElement iFrame = waitForElementLocatedBy(By.id(ID_Iframe));
        driver.switchTo().frame(iFrame);
-       return waitForElementLocatedBy(driver, By.xpath(XPATH_COST_IN_EMAIL_FIELD)).getText();
+       return waitForElementLocatedBy(By.xpath(XPATH_COST_IN_EMAIL_FIELD)).getText();
     }
 }

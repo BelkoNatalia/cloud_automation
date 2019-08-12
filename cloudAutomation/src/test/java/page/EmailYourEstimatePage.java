@@ -19,14 +19,14 @@ public class EmailYourEstimatePage extends CloudAbstractPage {
     }
 
     public EmailYourEstimatePage fillEmailField(String email) {
-        WebElement iFrame = waitForElementLocatedBy(driver, By.id(ID_Iframe));
+        WebElement iFrame = waitForElementLocatedBy(By.id(ID_Iframe));
         driver.switchTo().frame(iFrame);
-        waitForElementLocatedBy(driver, By.xpath(XPATH_EMAIL_FIELD)).sendKeys(email);
+        waitForElementLocatedBy(By.xpath(XPATH_EMAIL_FIELD)).sendKeys(email);
         return this;
     }
 
     public CloudCalkulationResultPage sendEmail() {
-        waitForElementToBeClickableBy(driver, By.xpath(XPATH_SEND_EMAIL_BTN)).click();
+        waitForElementToBeClickableBy(By.xpath(XPATH_SEND_EMAIL_BTN)).click();
         logger.info("Email is sent");
         return new CloudCalkulationResultPage(driver);
     }

@@ -18,7 +18,7 @@ public class CloudProductsAndServicesPage extends CloudAbstractPage {
     }
 
     public CloudPricingPage seePricing(){
-        WebElement seePricingBtn = waitForElementLocatedBy(driver, By.xpath(XPATH_SEE_PRICING_BTN));
+        WebElement seePricingBtn = waitForElementLocatedBy(By.xpath(XPATH_SEE_PRICING_BTN));
         seePricingBtn.click();
         return new CloudPricingPage(driver);
     }

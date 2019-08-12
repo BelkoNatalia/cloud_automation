@@ -16,14 +16,15 @@ public class CrazyMailingPage extends CloudAbstractPage {
         super(driver);
         logger.info("CrazyMailingPage is open");
     }
+
     public String getEmail(){
-        WebElement email = waitForElementLocatedBy(driver, By.id(ID_TEMPORARY_EMAIL_FIELD));
+        WebElement email = waitForElementLocatedBy(By.id(ID_TEMPORARY_EMAIL_FIELD));
         return email.getText();
     }
 
     public EmailContentPage openEmailBySubject(String emailSubject){
         String xpathSubject = String.format(TEMPLATE_XPATH_SUBJECT_CLOUD_EMAIL, emailSubject);
-        waitForElementToBeClickableBy(driver, By.xpath(xpathSubject)).click();
+        waitForElementToBeClickableBy(By.xpath(xpathSubject)).click();
         logger.info("Arrived email by subject" + emailSubject + " is open");
         return new EmailContentPage(driver);
     }

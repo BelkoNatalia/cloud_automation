@@ -24,13 +24,13 @@ public class CloudHomePage extends CloudAbstractPage {
     }
 
     public CloudProductsAndServicesPage seeAllProducts(){
-        WebElement seeAllProductsBtn = waitForElementLocatedBy(driver, By.xpath(XPATH_SEE_ALL_PRODUCTS_BTN));
+        WebElement seeAllProductsBtn = waitForElementLocatedBy(By.xpath(XPATH_SEE_ALL_PRODUCTS_BTN));
         seeAllProductsBtn.click();
         return new CloudProductsAndServicesPage(driver);
     }
 
     public String seeAllProductsBtnName(){
-        WebElement seeAllProductsBtn = waitForElementLocatedBy(driver, By.xpath(XPATH_SEE_ALL_PRODUCTS_BTN));
+        WebElement seeAllProductsBtn = waitForElementLocatedBy(By.xpath(XPATH_SEE_ALL_PRODUCTS_BTN));
         return seeAllProductsBtn.getText();
     }
 }
