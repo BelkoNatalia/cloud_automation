@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class EmailYourEstimatePage extends CloudAbstractPage {
 
-    private static final String ID_Iframe = "idIframe";
+    private static final String ID_IFRAME = "idIframe";
     private static final String XPATH_EMAIL_FIELD = "//label[contains(text(),'Email')]/following-sibling::input";
     private static final String XPATH_SEND_EMAIL_BTN = "//button[contains(text(),'Send Email') and not(@disabled)]";
     private static final Logger logger = LogManager.getRootLogger();
@@ -19,7 +19,7 @@ public class EmailYourEstimatePage extends CloudAbstractPage {
     }
 
     public EmailYourEstimatePage fillEmailField(String email) {
-        WebElement iFrame = waitForElementLocatedBy(By.id(ID_Iframe));
+        WebElement iFrame = waitForElementLocatedBy(By.id(ID_IFRAME));
         driver.switchTo().frame(iFrame);
         waitForElementLocatedBy(By.xpath(XPATH_EMAIL_FIELD)).sendKeys(email);
         return this;

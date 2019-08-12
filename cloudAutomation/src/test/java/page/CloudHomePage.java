@@ -29,7 +29,7 @@ public class CloudHomePage extends CloudAbstractPage {
         return new CloudProductsAndServicesPage(driver);
     }
 
-    public String seeAllProductsBtnName(){
+    public String getAllProductsBtnName(){
         WebElement seeAllProductsBtn = waitForElementLocatedBy(By.xpath(XPATH_SEE_ALL_PRODUCTS_BTN));
         return seeAllProductsBtn.getText();
     }

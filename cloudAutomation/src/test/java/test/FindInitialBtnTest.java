@@ -9,13 +9,13 @@ import static org.hamcrest.Matchers.is;
 
 public class FindInitialBtnTest extends CommonConditions{
     @Test(description = "Find initial button")
-    public void FindInitialBtn () {
+    public void findInitialBtn() {
         String expectedlBtnName = "See products";
 
         CloudHomePage cloudHomePage = new CloudHomePage(driver);
 
         String currentBtnName = cloudHomePage.openPage()
-                .seeAllProductsBtnName();
+                .getAllProductsBtnName();
         assertThat(currentBtnName, is(equalTo(expectedlBtnName)));
     }
 }

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CloudFillingCalculationFormPage extends CloudAbstractPage {
-    private static final String ID_Iframe = "idIframe";
+    private static final String ID_IFRAME = "idIframe";
     private static final String TEMPLATE_XPATH_ITEM_DROP_DOWN_MENU = "//div[@class='md-select-menu-container md-active md-clickable']" +
             "//md-option/div[contains(text(),'%s')]";
     private static final String XPATH_GPUS_CHECK_BOX = "//div[contains(text(),'Add GPUs.')]/preceding-sibling::div";
@@ -58,7 +58,7 @@ public class CloudFillingCalculationFormPage extends CloudAbstractPage {
     }
 
     public CloudFillingCalculationFormPage activateComputeEngine() {
-        waitForElementLocatedBy(By.id(ID_Iframe));
+        waitForElementLocatedBy(By.id(ID_IFRAME));
         driver.switchTo().frame(iframe);
         computeEngineBtn.click();
         return this;
