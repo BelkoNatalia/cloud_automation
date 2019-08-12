@@ -1,5 +1,6 @@
 package test;
 
+import Utils.StringUtils;
 import model.ComputerEngine;
 import org.testng.annotations.Test;
 import page.CloudCalkulationResultPage;
@@ -23,7 +24,7 @@ public class CloudTestRun extends CommonConditions {
 
         CloudHomePage cloudHomePage = new CloudHomePage(driver);
 
-        cloudHomePage.openPage()
+        String estimatedCostByPage = cloudHomePage.openPage()
                 .seeAllProducts()
                 .seePricing()
                 .usePricingCalculator()
@@ -38,11 +39,10 @@ public class CloudTestRun extends CommonConditions {
                 .chooseLocalSsd(testComputerEngine)
                 .chooseDatacenterLocation(testComputerEngine)
                 .chooseCommittedUsage(testComputerEngine)
-                .getEstimation();
+                .getEstimation()
+                .getTotalEstimatedCost();
 
         CloudCalkulationResultPage cloudCalkulationResultPage = new CloudCalkulationResultPage(driver);
-
-        String estimatedCostByPage = cloudCalkulationResultPage.getTotalEstimatedCost();
 
         EmailYourEstimatePage emailYourEstimatePage = cloudCalkulationResultPage.chooseEmailEstimate();
 
@@ -61,8 +61,7 @@ public class CloudTestRun extends CommonConditions {
         String totalEstimateCostFromEmail = crazyMailingPage.openEmailBySubject(emailSubject)
                 .getTotalEstimateCost().trim();
 
-        String[] estimatedCostArray = estimatedCostByPage.split(":");
-        String expectedEstimatedCostValue = estimatedCostArray[1].replaceAll("per 1 month", "").trim();
+        String expectedEstimatedCostValue = StringUtils.formatEstimatedCost(estimatedCostByPage);
 
         assertThat(expectedEstimatedCostValue, is(equalTo(totalEstimateCostFromEmail)));
     }
